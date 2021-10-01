@@ -1,0 +1,16 @@
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS.deps.json
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS.runtimeconfig.json
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS.runtimeconfig.dev.json
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS.dll
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ref/ProjetoStreamingCS.dll
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/bin/Debug/net5.0/ProjetoStreamingCS.pdb
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.csproj.AssemblyReference.cache
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.GeneratedMSBuildEditorConfig.editorconfig
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.AssemblyInfoInputs.cache
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.AssemblyInfo.cs
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.csproj.CoreCompileInputs.cache
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.dll
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ref/ProjetoStreamingCS.dll
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.pdb
+/home/pedro.fernandes/Área de Trabalho/Exercicios/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.genruntimeconfig.cache
