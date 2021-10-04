@@ -6,15 +6,18 @@ namespace ProjetoStreamingCS
     internal class Menu
     {
         private int opcao;
-        //List<Item> items = new List<Item>();
+        private List<IItemMenu> items = new List<IItemMenu>();
 
-        //items.Add(new Item("Cadastrar Cliente"));
+        public void Add(IItemMenu item)
+        {
+            this.items.Add(item);
+        }
 
         public void ShowMenu()
         {
 
             Console.WriteLine("---- Sistema Streaming ----\n");
-            Console.WriteLine("  1 - Cadastrar Cliente");
+            Console.WriteLine("  1 - " + items[0].Name());
             Console.WriteLine("  2 - Cadastrar Filme");
             Console.WriteLine("  3 - Cadastrar Plano Basico");
             Console.WriteLine("  4 - Cadastrar Plano Premium");

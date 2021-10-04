@@ -8,6 +8,9 @@ namespace ProjetoStreamingCS
         static void Main(string[] args)
         {
             Menu menu = new Menu();
+
+            menu.Add(new CadastrarCliente());
+
             bool start = true;
 
             List<Client> clients = new List<Client>();
