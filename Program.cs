@@ -33,8 +33,21 @@ namespace ProjetoStreamingCS
                 menu.ShowMenu();
                 
             };
+
+            /*
+            O que é NECESSARIO implementar: 
+                inicialização de tudo ja pre-pronto
             
 
+            O que poderia ser implementado/melhorado: 
+                Sistema de login para diferenciar Admins de Clientes
+                (Admin pode cadastrar filme, criar planos e tals)
+            
+            
+            erros conhecidos:
+                ESC + qualquer botão no menu principal
+                ENTER no menu principal
+            */
             
         }
     }

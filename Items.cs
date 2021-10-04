@@ -27,7 +27,26 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção Cadastrar Cliente selecionada\n");
+
+            /*
+            Todo cliente vai inicializar com o plano basico ja
+            logo posso adicionar um objeto de contrato no cliente (?)
+            como vou trabalhar com esse contrato?
+            são arquivos separados?
+            */
+
+
+            //recebe um CPF
+            //verifica se o CPF ja foi cadastrado no Clients.txt
+                //se já foi cadastrado
+                //recebe outro CPF //se o usuario digitar 0 ele é redirecionado ao menu principal
+            //instancia um objeto client da classe Client
+            //atribui o CPF ao objeto client
+            //recebe as outras informacoes 
+            //escreve o objeto client no arquivo Clients.txt
+            //incrementar quantidade de clientes no Contadores.txt
+
+            Console.WriteLine("---- " + Name() + " ----\n");
         }
     }
 
@@ -39,8 +58,18 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção Cadastrar Filme selecionada\n");
-        }
+
+            /*
+            instancio um objeto filme
+            informa qual o codigo do filme a ser cadastrado (1001 + contador de filmes atuais no banco)
+            Apertar ESC cancela o registro e volta ao menu principal (como faço isso???)
+            ler os dados do filme (e inserir no objeto)
+            escrever objeto no arquivo Movies.txt
+            incrementar a quantidade de filmes no Contadores.txt
+            */
+
+            Console.WriteLine("---- " + Name() + " ----\n");      
+        }  
     }
 
     internal class RegisterPlan : IItemMenu
@@ -51,8 +80,47 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção Cadastrar Plano selecionada\n");
-            //vou ter que fazer um menu dentro do menu, deus me ajude a saber fazer isso
+            Console.WriteLine("---- " + Name() + " ----\n");        
+            /*
+            Criar uma classe abstrata ou uma interface para plano (atributos em comum e metodos de impressão)
+                atributos em comum: mensalidade, anuidade, etc...
+                metodos: Imprimir plano (sobreescrever essa para cada plano)
+            Criar tres classes que herdam a classe plano (uma classe para cada plano)
+                adicionar informações de detalhes apenas porque sim (para deixar mais completo a ideia KKKKKKKKKKK)
+                por exemplo: quantidade de dispositivos simultaneos, pode fazer download?, max resolução do filme
+
+            --------------------------------------------------------------------------------------------------------
+
+            Criar submenu
+                1 - Plano Basico
+                2 - Plano Padrão
+                3 - Plano Premium
+
+            PLANO BASICO
+                Abrir arquivo Plans/Basic.txt
+                cria um objeto do plano basico e atribui o que ta no Plans/Premium.txt a ele
+                Informar quais são as informações atuais do plano basico 
+                perguntar se deseja atualizar 
+                    se sim, recebe novas informações
+                    se não, retorna ao menu principal
+
+            PLANO PADRÃO
+                Abrir arquivo Plans/Standard.txt
+                cria um objeto do plano standard e atribui o que ta no Plans/Standard.txt a ele
+                Informar quais são as informações atuais do plano standard 
+                perguntar se deseja atualizar 
+                    se sim, recebe novas informações
+                    se não, retorna ao menu principal
+            
+            PLANO PREMIUM
+                Abrir arquivo Plans/Premium.txt
+                cria um objeto do plano premium e atribui o que ta no Plans/Premium.txt a ele
+                Informar quais são as informações atuais do plano premium
+                perguntar se deseja atualizar 
+                    se sim, recebe novas informações (sobreescreve arquivo)
+                    se não, retorna ao menu principal
+            */
+
         }
     }
 
@@ -64,7 +132,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção Cadastrar Contrato selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -76,7 +144,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção assistir filme selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -88,7 +156,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção cancelar contrato selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -100,7 +168,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção gerar fatura selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -112,7 +180,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção dados cliente selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -124,7 +192,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção historico cliente selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -136,7 +204,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção clientes exedentes selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 
@@ -148,7 +216,7 @@ namespace ProjetoStreamingCS
         }
 
         public void Execute(){
-            Console.WriteLine("Opção frequencia de um filme selecionada\n");
+            Console.WriteLine("---- " + Name() + " ----\n");        
         }
     }
 }
