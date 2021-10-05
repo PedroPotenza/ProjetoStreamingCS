@@ -11,6 +11,8 @@ namespace Items.Menu{
 
         public void Execute(){
 
+            
+
             /*
             Todo cliente vai inicializar com o plano basico ja
             logo posso adicionar um objeto de contrato no cliente (?)
