@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Items.Menu;
 
 namespace ProjetoStreamingCS
 {
@@ -13,9 +14,9 @@ namespace ProjetoStreamingCS
             this.items.Add(item);
         }
 
-        public void ShowMenu()
+        public void ShowMenu(string title)
         {
-            Console.WriteLine("---- Sistema Streaming ----\n");
+            Console.WriteLine("---- " + title + " ----\n");
             for(int i=0; i < items.Count; i++ )
             {
                 Console.WriteLine("  " + i + " - " + items[i].Name());

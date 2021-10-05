@@ -1,4 +1,4 @@
-namespace ProjetoStreamingCS
+namespace Items.Menu
 {
     internal interface IItemMenu
     {

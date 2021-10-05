@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Items.Menu;
 
 namespace ProjetoStreamingCS
 {
@@ -30,24 +31,15 @@ namespace ProjetoStreamingCS
                     Console.ReadKey(false);
                 start = false;
                 Console.Clear();
-                menu.ShowMenu();
+                menu.ShowMenu("Sistema Streaming");
                 
             };
 
-            /*
-            O que é NECESSARIO implementar: 
-                inicialização de tudo ja pre-pronto
+            //TODO: Inicialização de tudo ja pre-pronto (arquivo ja ter informações)
+            //TODO: Sistema de login para diferenciar Admins de Clientes (Admin pode cadastrar filme, criar planos e tals)
             
-
-            O que poderia ser implementado/melhorado: 
-                Sistema de login para diferenciar Admins de Clientes
-                (Admin pode cadastrar filme, criar planos e tals)
-            
-            
-            erros conhecidos:
-                ESC + qualquer botão no menu principal
-                ENTER no menu principal
-            */
+            //FIX: ESC + qualquer botão no menu principal
+            //FIX: ENTER no menu principal
             
         }
     }
