@@ -27,7 +27,7 @@ namespace Entities
         }
         public void ShowPlan()
         {
-            Console.WriteLine("---- Plano " + name + " ----");
+            Console.WriteLine("---------- Plano " + name + " ----------");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Quantidade de dispositivos simultâneos: " + simultaneousDevices);
             Console.WriteLine("Qualidade maxima de imagem: " + maxQuality);
