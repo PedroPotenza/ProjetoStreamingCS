@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ProjetoStreamingCS
+namespace Entities
 {
     internal class Client
     {

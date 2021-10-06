@@ -1,4 +1,4 @@
-namespace ProjetoStreamingCS
+namespace Entities
 {
     internal class Movie
     {

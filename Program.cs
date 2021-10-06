@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Items.Menu;
 
 namespace ProjetoStreamingCS
@@ -13,7 +12,7 @@ namespace ProjetoStreamingCS
             menu.Add(new ExitSystem());
             menu.Add(new RegisterClient());
             menu.Add(new RegisterMovie());
-            menu.Add(new RegisterPlan());
+            menu.Add(new UpdatePlan());
             menu.Add(new RegisterContract());
             menu.Add(new WatchMovie());
             menu.Add(new CancelContract());
@@ -23,8 +22,6 @@ namespace ProjetoStreamingCS
             menu.Add(new FrequencyMovie());
 
             bool start = true;
-
-            List<Client> clients = new List<Client>();
 
             while(true){
                 if(!start)
