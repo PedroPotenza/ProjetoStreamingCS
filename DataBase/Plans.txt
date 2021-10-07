@@ -1,3 +1,3 @@
-Basico; 9.90; FullHD; 1; 30.00; 3; 15; false;
-Padrão; 19.90; 2K; 2; 60.00; 3; -1; false;
-Premium; 34.90; 4k; 5; 75.00; 3; -1; true;
+Basico; 1500;            FullHD; 2; 3290; 3; 16; False
+Padrão; 1990;    2K; 2; 6000; 3; -1; False
+Premium; 3490;  8K; 6; 75; 5; -1; True

@@ -19,7 +19,7 @@ namespace ProjetoStreamingCS
             Console.WriteLine("---- " + title + " ----\n");
             for(int i=0; i < items.Count; i++ )
             {
-                Console.WriteLine("  " + i + " - " + items[i].Name());
+                Console.WriteLine("  " + (i+1) + " - " + items[i].Name());
             }
 
             ReadOption();
@@ -32,14 +32,16 @@ namespace ProjetoStreamingCS
             {
                 Console.Write("\nOpção: ");
                 opcao = Convert.ToInt32(Console.ReadLine());
-                if(opcao >= 0 && opcao <items.Count)
+                if(opcao >= 1 && opcao <items.Count+1)
                     break;
                 else 
-                    Console.Write("\nOpção inválida. Tente novamente.\n");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
+                    Console.ResetColor();
             }
             Console.Clear();
 
-            items[opcao].Execute();
+            items[opcao-1].Execute();
             
         
         }
