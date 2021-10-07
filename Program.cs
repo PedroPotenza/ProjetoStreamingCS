@@ -34,9 +34,6 @@ namespace ProjetoStreamingCS
 
             //TODO: Sistema de login para diferenciar Admins de Clientes (Admin pode cadastrar filme, criar planos e tals)
             
-            //FIX: ESC + qualquer botão no menu principal
-            //FIX: ENTER no menu principal
-            
         }
     }
 }

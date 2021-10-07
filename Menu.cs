@@ -30,14 +30,21 @@ namespace ProjetoStreamingCS
         {
             while(true)
             {
-                Console.Write("\nOpção: ");
-                opcao = Convert.ToInt32(Console.ReadLine());
-                if(opcao >= 1 && opcao <items.Count+1)
-                    break;
-                else 
+                try
+                {
+                    Console.Write("\nOpção: ");
+                    opcao = Convert.ToInt32(Console.ReadLine());
+                    if(opcao >= 1 && opcao <items.Count+1)
+                        break;
+                    else 
+                        throw new FormatException();
+                }
+                catch(FormatException)
+                {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("\n\tOpção inválida. Tente novamente.\n");
                     Console.ResetColor();
+                }
             }
             Console.Clear();
 
