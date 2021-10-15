@@ -40,7 +40,7 @@ namespace Entities
             Console.ResetColor();
         } 
 
-        public void updateLine(string newText, int line)
+        public void UpdateLine(string newText, int line)
         {
             string filePath = @"./DataBase/Plans.txt";
             string[] plans = File.ReadAllLines(filePath);
@@ -55,5 +55,6 @@ namespace Entities
             //implemento a função
             return 0;
         } 
+
     }
 }

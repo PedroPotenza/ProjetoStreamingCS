@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Entities;
 
 namespace Items.Menu{
 
@@ -11,15 +13,34 @@ namespace Items.Menu{
 
         public void Execute(){
 
+            string filePath = @"./DataBase/Clients.txt";
+
+            string cpfLocal;
+            Console.Write("CPF: ");
+            cpfLocal = Console.ReadLine();
+
+            var lineCount = 0;
+            //seria possivel fazer uma função dentro de Client.cs fazendo essa busca? (e consequentemente instanciando um client dentro da classe client)
+            //o retorno seria o cliente ja cadastrado
+            using (var reader = File.OpenText(filePath))
+            {
+                string line = reader.ReadLine();
+                while (line != null)
+                {
+                    lineCount++;
+                    string[] atribute = line.Split(';');
+                    Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],int.Parse(atribute[4]));
+                    if(client.cpf == cpfLocal){
+                        Console.WriteLine("CPF já cadastrado!\n");
+                        client.ShowClient();
+                    }
+                    
+
+                }
+            }
+
+
             
-
-            /*
-            Todo cliente vai inicializar com o plano basico ja
-            logo posso adicionar um objeto de contrato no cliente (?)
-            como vou trabalhar com esse contrato?
-            são arquivos separados?
-            */
-
 
             //recebe um CPF
             //verifica se o CPF ja foi cadastrado no Clients.txt

@@ -110,9 +110,9 @@ namespace Items.Menu{
                     plan.download.ToString()
                     };
 
-                dataString = string.Join("; ", newLine);
+                dataString = string.Join(";", newLine);
 
-                plan.updateLine(dataString, 3);
+                plan.UpdateLine(dataString, 3);
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");

@@ -4,34 +4,53 @@ namespace Entities
 {
     internal class Client
     {
-        // public enum StatusEnum
-        // {
-        //     Active,
-        //     Inactive
-        // }
-
-        private string cpf { get; set; }
-        private string name { get; set; }
-        private string email { get; set; }
-        private string phone { get; set; }
-        private int  contractId { get; set; }
-
-        // private List<Movie> watched_movies = new List<Movie>();
-        
-        public Client()
+        public enum PlanType
         {
-            // status = StatusEnum.Inactive;
+            Basic = 1,
+            Standard,
+            Premium
         }
 
-        // public Movie GetMovie(int Index)
-        // {
-        //     return watched_movies[Index];
-        // }
+        static private int counterClients = 0;
+        public int  id { get; set; }
+        public string cpf { get; set; }
+        public string name { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public PlanType planType { get; set; }
 
-        // public void WatchMovie(Movie WatchedMovie)
-        // {
-        //     watched_movies.Add(WatchedMovie);
-        // }
+        public Client()
+        {
+
+        }
+        public Client(int id, string cpf, string email, string phone, int planType)
+        {
+            this.id = id;
+            this.cpf = cpf;
+            this.email = email;
+            this.phone = phone;
+            this.planType = (PlanType) planType;
+        }
+
+        int GetCounterClients()
+        {
+            return(counterClients);
+        }
+
+        void IncrementCounterClients()
+        {
+            counterClients++;
+        }
+
+        void DecrementCounterClients()
+        {
+            counterClients--;
+        }
+
+        public void ShowClient()
+        {
+
+        }
 
     }
 }

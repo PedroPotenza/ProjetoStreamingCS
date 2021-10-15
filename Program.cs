@@ -1,6 +1,8 @@
 ﻿using System;
 using Items.Menu;
 
+
+
 namespace ProjetoStreamingCS
 {
     class Program
@@ -20,6 +22,8 @@ namespace ProjetoStreamingCS
             menu.Add(new ShowClient());
             menu.Add(new ExcessClients());
             menu.Add(new FrequencyMovie());
+
+
 
             bool start = true;
 
