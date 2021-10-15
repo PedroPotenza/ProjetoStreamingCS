@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Entities
@@ -23,10 +24,11 @@ namespace Entities
         {
 
         }
-        public Client(int id, string cpf, string email, string phone, int planType)
+        public Client(int id, string cpf, string name, string email, string phone, int planType)
         {
             this.id = id;
             this.cpf = cpf;
+            this.name = name;
             this.email = email;
             this.phone = phone;
             this.planType = (PlanType) planType;
@@ -49,7 +51,16 @@ namespace Entities
 
         public void ShowClient()
         {
-
+            Console.WriteLine("\n------------------------");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Id: " + id);
+            Console.WriteLine("CPF: " + cpf);
+            Console.WriteLine("Nome: " + name);
+            Console.WriteLine("Email: " + email);
+            Console.WriteLine("Telefone: " + phone);
+            Console.WriteLine("Tipo de Plano: " + planType);
+            Console.ResetColor();
+            Console.WriteLine("------------------------\n");
         }
 
     }

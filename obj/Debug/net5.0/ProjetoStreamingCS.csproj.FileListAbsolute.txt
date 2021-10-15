@@ -29,7 +29,6 @@
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.AssemblyInfoInputs.cache
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.AssemblyInfo.cs
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.csproj.CoreCompileInputs.cache
-/home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.csproj.CopyComplete
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.dll
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ref/ProjetoStreamingCS.dll
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.pdb

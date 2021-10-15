@@ -1,5 +1,3 @@
-1200;49795442821;Pedro Potenza;pedro.potenza@gmail.com;11999255115;
-
 //TODO:
 Basicamente o esquema vai ser o seguinte, todos os clientes vão ficar no mesmo arquivo.
 Como vou achar o cliente que eu quero no meio dessa bagunça?

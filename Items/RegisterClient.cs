@@ -16,28 +16,37 @@ namespace Items.Menu{
             string filePath = @"./DataBase/Clients.txt";
 
             string cpfLocal;
+            Console.WriteLine("---- " + Name() + " ----\n");
             Console.Write("CPF: ");
             cpfLocal = Console.ReadLine();
 
-            var lineCount = 0;
-            //seria possivel fazer uma função dentro de Client.cs fazendo essa busca? (e consequentemente instanciando um client dentro da classe client)
+            //seria possivel fazer uma função dentro de Client.cs fazendo essa busca(se o cliente existe)? (e consequentemente instanciando um client dentro da classe client)
             //o retorno seria o cliente ja cadastrado
+            
+            var lineCount = 0;
+            string line;
             using (var reader = File.OpenText(filePath))
             {
-                string line = reader.ReadLine();
-                while (line != null)
+                
+                while ((line = reader.ReadLine()) != null)
                 {
-                    lineCount++;
-                    string[] atribute = line.Split(';');
-                    Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],int.Parse(atribute[4]));
-                    if(client.cpf == cpfLocal){
-                        Console.WriteLine("CPF já cadastrado!\n");
-                        client.ShowClient();
-                    }
                     
-
+                    lineCount++;
+                    // Console.WriteLine("Linha: " + lineCount);
+                    string[] atribute = line.Split(';');
+                    Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],atribute[4],int.Parse(atribute[5]));
+                    if(client.cpf == cpfLocal){
+                       
+                        client.ShowClient();
+                        break;
+                    }
                 }
-            }
+                if(line == null)
+                {
+                    Console.WriteLine("CPF não cadastrado!");
+                }
+                
+             }
 
 
             
@@ -52,7 +61,7 @@ namespace Items.Menu{
             //escreve o objeto client no arquivo Clients.txt
             //incrementar quantidade de clientes no Contadores.txt
 
-            Console.WriteLine("---- " + Name() + " ----\n");
+            
         }
     }
     
