@@ -38,18 +38,26 @@ namespace Items.Menu{
                     if(client.cpf == cpfLocal){
                        
                         client.ShowClient();
+                        Console.WriteLine("Você deseja atualizar os dados do(a) cliente \"" + client.name + "\" ?");
+            
+                        int opcao = ReadYesOrNot();
+                        // opcao.Equals(1) ? UpdateClient() : BackToMenu();
+                        BackToMenu();
                         break;
                     }
                 }
                 if(line == null)
                 {
                     Console.WriteLine("CPF não cadastrado!");
+
+                    Console.WriteLine("\nVocê deseja cadastrar um cliente com o cpf \"" + cpfLocal + "\" ?");
+            
+                    int opcao = ReadYesOrNot();
+                    // opcao.Equals(1) ? RegisterClientInFile() : BackToMenu(); 
+                    BackToMenu();   
                 }
                 
              }
-
-
-            
 
             //recebe um CPF
             //verifica se o CPF ja foi cadastrado no Clients.txt
@@ -62,6 +70,43 @@ namespace Items.Menu{
             //incrementar quantidade de clientes no Contadores.txt
 
             
+        }
+
+        private void BackToMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
+            Console.ResetColor();
+        }
+
+        private int ReadYesOrNot()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\t(1) Sim");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" \t(2) Não");
+            Console.ResetColor();
+
+            int opcao;
+            while(true)
+            {
+                try{
+                    Console.Write("\nOpção: ");
+                    opcao = Convert.ToInt32(Console.ReadLine());
+                    if(opcao >= 1 && opcao <= 2)
+                        return opcao;
+                    else 
+                        throw new FormatException();
+                }
+                catch(FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
+                    Console.ResetColor();
+                }
+                
+            }
         }
     }
     
