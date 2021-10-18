@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace ProjetoStreamingCS
@@ -16,6 +17,26 @@ namespace ProjetoStreamingCS
         static public void AddLine(string filePath, string newText)
         {
             File.AppendAllText(filePath, newText);
+        }
+
+        static public int CountFile(string filePath)
+        {
+            var lineCount = 0;
+            using (var reader = File.OpenText(@filePath))
+            {
+                while (reader.ReadLine() != null)
+                {
+                    lineCount++;
+                }
+            }
+            return(lineCount);
+        }
+
+         static public void BackToMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
+            Console.ResetColor();
         }
     }
 }

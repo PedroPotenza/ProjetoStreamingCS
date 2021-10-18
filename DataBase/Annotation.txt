@@ -25,3 +25,9 @@ https://docs.microsoft.com/pt-br/dotnet/standard/io/how-to-read-text-from-a-file
 Função para saber quantas linhas tem um arquivo
 (sim eh o mesmo link que o para contar, pq a logica eh parecida)
 https://stackoverflow.com/questions/119559/determine-the-number-of-lines-within-a-text-file
+
+
+
+
+
+56000 + 213;

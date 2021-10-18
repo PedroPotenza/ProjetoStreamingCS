@@ -41,10 +41,17 @@ namespace Items.Menu{
                         client.ShowClient();
                         Console.WriteLine("Você deseja atualizar os dados do(a) cliente \"" + client.name + "\" ?");
             
-                        int opcao = ReadYesOrNot();
+                        bool opcao = Validation.ReadYesOrNot();
                         
-                        // opcao.Equals(1) ? UpdateClient() : BackToMenu();
-                        BackToMenu();
+                        if(opcao)
+                        {
+                            UpdateClient(client);
+                        }
+                        else
+                        {
+                            FileUtil.BackToMenu();
+                        }
+
                         break;
                     }
                 }
@@ -54,61 +61,31 @@ namespace Items.Menu{
 
                     Console.WriteLine("\nVocê deseja cadastrar um cliente com o cpf \"" + cpfLocal + "\" ?");
             
-                    int opcao = ReadYesOrNot();
+                    bool opcao = Validation.ReadYesOrNot();
                     // opcao.Equals(1) ? RegisterClientInFile() : BackToMenu(); 
-                    BackToMenu();   
+                    FileUtil.BackToMenu();   
                 }
                 
              }
 
-            //recebe um CPF
-            //verifica se o CPF ja foi cadastrado no Clients.txt
-                //se já foi cadastrado
-                //recebe outro CPF //se o usuario digitar 0 ele é redirecionado ao menu principal
-            //instancia um objeto client da classe Client
-            //atribui o CPF ao objeto client
-            //recebe as outras informacoes 
-            //escreve o objeto client no arquivo Clients.txt
-            //incrementar quantidade de clientes no Contadores.txt
-
-            
         }
 
-        private void BackToMenu()
+        private void UpdateClient(Client client)
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
-            Console.ResetColor();
-        }
+            //int dataInt;
+            string dataString;
 
-        private int ReadYesOrNot()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\t(1) Sim");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" \t(2) Não");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
             Console.ResetColor();
 
-            int opcao;
-            while(true)
-            {
-                try{
-                    Console.Write("\nOpção: ");
-                    opcao = Convert.ToInt32(Console.ReadLine());
-                    if(opcao >= 1 && opcao <= 2)
-                        return opcao;
-                    else 
-                        throw new FormatException();
-                }
-                catch(FormatException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
-                    Console.ResetColor();
-                }
-                
-            }
+            Console.Write("Nome: ");
+            dataString = Console.ReadLine();
+            if(dataString != "-1" ) client.name = dataString;
+
+            Console.Write("Email: ");
+            dataString = Console.ReadLine();
+            if(dataString != "-1" ) client.email = dataString;
         }
     }
     

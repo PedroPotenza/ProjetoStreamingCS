@@ -26,36 +26,9 @@ namespace Items.Menu{
 
             Console.WriteLine("\nVocê deseja atualizar as informações do " + Name() + " ?");
             
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\t(1) Sim");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" \t(2) Não");
-            Console.ResetColor();
+            bool opcao = Validation.ReadYesOrNot();        
 
-            int opcao;
-            while(true)
-            {
-                try{
-                    Console.Write("\nOpção: ");
-                    opcao = Convert.ToInt32(Console.ReadLine());
-                    if(opcao >= 1 && opcao <= 2)
-                        break;
-                    else 
-                        throw new FormatException();
-                }
-                catch(FormatException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
-                    Console.ResetColor();
-                }
-                
-            }        
-
-            //FIX: Try and catch... User can misstype "-1" to "-", so the application just exit.
-
-            if(opcao == 1)
+            if(opcao)
             {
                 int dataInt;
                 string dataString;
@@ -64,44 +37,29 @@ namespace Items.Menu{
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
                 Console.ResetColor();
-                try
-                {
-                    Console.Write("\nQuantidade de dispositivos simultâneos: ");
-                    dataInt = Convert.ToInt32(Console.ReadLine());
-                    if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
                 
-                    Console.Write("Qualidade maxima de imagem: ");
-                    dataString = Console.ReadLine();
-                    if(dataString != "-1" ) plan.maxQuality = dataString;
+                dataInt = Validation.IntReadValidation("Quantidade de dispositivos simultâneos: ");
+                if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
+            
+                dataString = Validation.StringReadValidation("Qualidade maxima de imagem: ");
+                if(dataString != "-1" ) plan.maxQuality = dataString;
 
-                    Console.Write("Tempo de fidelidade: ");
-                    dataInt = Convert.ToInt32(Console.ReadLine());
-                    if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
+                dataInt = Validation.IntReadValidation("Tempo de fidelidade: ");
+                if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
 
-                    Console.Write("Multa de fidelidade: ");
-                    dataFloat = float.Parse(Console.ReadLine());
-                    if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat;
+                dataFloat = Validation.FloatReadValidation("Multa de fidelidade: ");
+                if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat;
 
-                    Console.Write("Limite de filmes: ");
-                    dataInt = Convert.ToInt32(Console.ReadLine());
-                    if(dataInt != -1 ) plan.maxMovies = dataInt;
+                dataInt = Validation.IntReadValidation("Limite de filmes: ");
+                if(dataInt != -1 ) plan.maxMovies = dataInt;
 
-                    Console.Write("Download de filmes: Não");
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
-                    Console.ResetColor();
-                    
-                    Console.Write("Valor do plano: ");
-                    dataFloat = float.Parse(Console.ReadLine());
-                    if(dataFloat != -1 ) plan.valor = (int)dataFloat;
-                    
-                }
-                catch(FormatException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
-                    Console.ResetColor();
-                }
+                Console.Write("Download de filmes: Não");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
+                Console.ResetColor();
+                
+                dataFloat = Validation.FloatReadValidation("Valor do plano: ");
+                if(dataFloat != -1 ) plan.valor = (int)dataFloat;
                 
                 string[] newLine = {
                     plan.name, 
@@ -125,7 +83,7 @@ namespace Items.Menu{
             }
             else
             {
-                Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
+                FileUtil.BackToMenu();
             } 
         }
     }

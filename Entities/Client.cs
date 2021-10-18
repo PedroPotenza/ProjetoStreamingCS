@@ -12,7 +12,6 @@ namespace Entities
             Premium
         }
 
-        static private int counterClients = 0;
         public int  id { get; set; }
         public string cpf { get; set; }
         public string name { get; set; }
@@ -34,21 +33,7 @@ namespace Entities
             this.planType = (PlanType) planType;
         }
 
-        int GetCounterClients()
-        {
-            return(counterClients);
-        }
-
-        void IncrementCounterClients()
-        {
-            counterClients++;
-        }
-
-        void DecrementCounterClients()
-        {
-            counterClients--;
-        }
-
+        
         public void ShowClient()
         {
             Console.WriteLine("\n------------------------");
