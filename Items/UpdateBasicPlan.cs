@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using ProjetoStreamingCS;
 
 namespace Items.Menu{
 
@@ -52,6 +53,8 @@ namespace Items.Menu{
                 
             }        
 
+            //FIX: Try and catch... User can misstype "-1" to "-", so the application just exit.
+
             if(opcao == 1)
             {
                 int dataInt;
@@ -61,35 +64,44 @@ namespace Items.Menu{
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
                 Console.ResetColor();
-
-                Console.Write("\nQuantidade de dispositivos simultâneos: ");
-                dataInt = Convert.ToInt32(Console.ReadLine());
-                if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
-
-                Console.Write("Qualidade maxima de imagem: ");
-                dataString = Console.ReadLine();
-                if(dataString != "-1" ) plan.maxQuality = dataString;
-
-                Console.Write("Tempo de fidelidade: ");
-                dataInt = Convert.ToInt32(Console.ReadLine());
-                if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
-
-                Console.Write("Multa de fidelidade: ");
-                dataFloat = float.Parse(Console.ReadLine());
-                if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat;
-
-                Console.Write("Limite de filmes: ");
-                dataInt = Convert.ToInt32(Console.ReadLine());
-                if(dataInt != -1 ) plan.maxMovies = dataInt;
-
-                Console.Write("Download de filmes: Não");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
-                Console.ResetColor();
+                try
+                {
+                    Console.Write("\nQuantidade de dispositivos simultâneos: ");
+                    dataInt = Convert.ToInt32(Console.ReadLine());
+                    if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
                 
-                Console.Write("Valor do plano: ");
-                dataFloat = float.Parse(Console.ReadLine());
-                if(dataFloat != -1 ) plan.valor = (int)dataFloat;
+                    Console.Write("Qualidade maxima de imagem: ");
+                    dataString = Console.ReadLine();
+                    if(dataString != "-1" ) plan.maxQuality = dataString;
+
+                    Console.Write("Tempo de fidelidade: ");
+                    dataInt = Convert.ToInt32(Console.ReadLine());
+                    if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
+
+                    Console.Write("Multa de fidelidade: ");
+                    dataFloat = float.Parse(Console.ReadLine());
+                    if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat;
+
+                    Console.Write("Limite de filmes: ");
+                    dataInt = Convert.ToInt32(Console.ReadLine());
+                    if(dataInt != -1 ) plan.maxMovies = dataInt;
+
+                    Console.Write("Download de filmes: Não");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
+                    Console.ResetColor();
+                    
+                    Console.Write("Valor do plano: ");
+                    dataFloat = float.Parse(Console.ReadLine());
+                    if(dataFloat != -1 ) plan.valor = (int)dataFloat;
+                    
+                }
+                catch(FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
+                    Console.ResetColor();
+                }
                 
                 string[] newLine = {
                     plan.name, 
@@ -104,7 +116,8 @@ namespace Items.Menu{
 
                 dataString = string.Join(";", newLine);
 
-                plan.UpdateLine(dataString, 1);
+                FileUtil.UpdateLine(filePath, dataString, 1);
+                
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");

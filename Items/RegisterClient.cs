@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using ProjetoStreamingCS;
 
 namespace Items.Menu{
 
@@ -41,6 +42,7 @@ namespace Items.Menu{
                         Console.WriteLine("Você deseja atualizar os dados do(a) cliente \"" + client.name + "\" ?");
             
                         int opcao = ReadYesOrNot();
+                        
                         // opcao.Equals(1) ? UpdateClient() : BackToMenu();
                         BackToMenu();
                         break;

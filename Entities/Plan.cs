@@ -40,16 +40,6 @@ namespace Entities
             Console.ResetColor();
         } 
 
-        public void UpdateLine(string newText, int line)
-        {
-            string filePath = @"./DataBase/Plans.txt";
-            string[] plans = File.ReadAllLines(filePath);
-            plans[line - 1] = newText;
-            File.WriteAllLines(filePath, plans);
-            
-            //reference:
-            //https://stackoverflow.com/questions/1971008/edit-a-specific-line-of-a-text-file-in-c-sharp
-        }
         public float Loyalty()
         {
             //implemento a função

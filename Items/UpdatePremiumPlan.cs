@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using ProjetoStreamingCS;
 
 namespace Items.Menu{
 
@@ -112,7 +113,7 @@ namespace Items.Menu{
 
                 dataString = string.Join(";", newLine);
 
-                plan.UpdateLine(dataString, 3);
+                FileUtil.UpdateLine(filePath, dataString, 3);
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
