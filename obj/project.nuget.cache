@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mrpcWX0WCNpEKKYl516+jEU9yKpfoX/HmORlq8t4ptNICjjSj92/b7M68vedF2GcpMcpIby/9WGxemLFm2hozQ==",
+  "dgSpecHash": "rwb/VTXISqKRI6mp7lvJeL8/+lISmMqGwhaQzxf4uhCkERPiMUlT3EUV8HeuRS/mhWdxUdMhkVjTYRt1fgcVSg==",
   "success": true,
-  "projectFilePath": "/home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/ProjetoStreamingCS.csproj",
+  "projectFilePath": "C:\\Users\\Pedro Fernandes\\Desktop\\ProjetoStreamingCS\\ProjetoStreamingCS.csproj",
   "expectedPackageFiles": [
-    "/home/pedro.fernandes/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Pedro Fernandes\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -33,3 +33,21 @@
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ref/ProjetoStreamingCS.dll
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.pdb
 /home/pedro.fernandes/Área de Trabalho/Estudos/ProjetoStreamingCS/obj/Debug/net5.0/ProjetoStreamingCS.genruntimeconfig.cache
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.exe
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.deps.json
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.runtimeconfig.json
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.runtimeconfig.dev.json
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.dll
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ref\ProjetoStreamingCS.dll
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\ProjetoStreamingCS.pdb
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.csproj.AssemblyReference.cache
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.AssemblyInfoInputs.cache
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.AssemblyInfo.cs
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.csproj.CoreCompileInputs.cache
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.csproj.CopyComplete
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.dll
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ref\ProjetoStreamingCS.dll
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.pdb
+C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.genruntimeconfig.cache
