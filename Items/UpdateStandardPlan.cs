@@ -16,22 +16,12 @@ namespace Items.Menu{
             
             string filePath = @"./DataBase/Plans.txt";
             
-            // using (var reader = File.OpenText(filePath))
-            // {
-            //     string line;
-            //         reader.ReadLine();
-            //         line = reader.ReadLine();
-            //         string[] atribute = line.Split(';');
-            //         Plan plan = new Plan(atribute[0], float.Parse(atribute[1])/100, atribute[2], int.Parse(atribute[3]), float.Parse(atribute[4])/100, int.Parse(atribute[5]), int.Parse(atribute[6]), bool.Parse(atribute[7]));
-            //         plan.ShowPlan();
-                
-            // }
-
             var reader = File.OpenText(filePath);
             
             reader.ReadLine();
             
             string line = reader.ReadLine();
+            reader.Close();
             string[] atribute = line.Split(';');
 
             Plan plan = new Plan(atribute[0], int.Parse(atribute[1]), atribute[2], int.Parse(atribute[3]), int.Parse(atribute[4]), int.Parse(atribute[5]), int.Parse(atribute[6]), bool.Parse(atribute[7]));
@@ -39,27 +29,9 @@ namespace Items.Menu{
 
             Console.WriteLine("\nVocê deseja atualizar as informações do " + Name() + " ?");
             
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\t(1) Sim");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" \t(2) Não");
-            Console.ResetColor();
+            bool opcao = Validation.ReadYesOrNot();
 
-            int opcao;
-            while(true)
-            {
-                Console.Write("\nOpção: ");
-                opcao = Convert.ToInt32(Console.ReadLine());
-                if(opcao >= 1 && opcao <= 2)
-                    break;
-                else 
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("\n\tOpção inválida. Tente novamente.\n");
-                    Console.ResetColor();
-            }
-
-            if(opcao == 1)
+            if(opcao)
             {
                 int dataInt;
                 string dataString;
@@ -69,20 +41,16 @@ namespace Items.Menu{
                 Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
                 Console.ResetColor();
 
-                Console.Write("\nQuantidade de dispositivos simultâneos: ");
-                dataInt = Convert.ToInt32(Console.ReadLine());
+                dataInt = Validation.IntReadValidation("\nQuantidade de dispositivos simultâneos: ");
                 if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
 
-                Console.Write("Qualidade maxima de imagem: ");
-                dataString = Console.ReadLine();
+                dataString = Validation.StringReadValidation("Qualidade maxima de imagem: ");
                 if(dataString != "-1" ) plan.maxQuality = dataString;
 
-                Console.Write("Tempo de fidelidade: ");
-                dataInt = Convert.ToInt32(Console.ReadLine());
+                dataInt = Validation.IntReadValidation("Tempo de fidelidade: ");
                 if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
 
-                Console.Write("Multa de fidelidade: ");
-                dataFloat = float.Parse(Console.ReadLine());
+                dataFloat = Validation.FloatReadValidation("Multa de fidelidade: ");
                 if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat; 
 
                 Console.Write("Limite de filmes: Ilimitado");
@@ -95,8 +63,7 @@ namespace Items.Menu{
                 Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
                 Console.ResetColor();
                 
-                Console.Write("Valor do plano: ");
-                dataFloat = float.Parse(Console.ReadLine());
+                dataFloat = Validation.FloatReadValidation("Valor do plano: ");
                 if(dataFloat != -1 ) plan.valor = (int)dataFloat; 
     
                 string[] newLine = {
@@ -120,7 +87,7 @@ namespace Items.Menu{
             }
             else
             {
-                Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
+                FileUtil.BackToMenu();
             }        
         }
     }

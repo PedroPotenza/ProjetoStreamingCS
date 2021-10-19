@@ -91,8 +91,52 @@ namespace ProjetoStreamingCS
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("\n\tOpção inválida. Tente novamente.\n");
                     Console.ResetColor();
+                }       
+            }
+        }
+
+        static public int OptionReadValidation(int lowerLimit, int upperLimit)
+        {
+            int opcao;
+            while(true)
+            {
+                try{
+                    Console.Write("\nOpção: ");
+                    opcao = Convert.ToInt32(Console.ReadLine());
+                    if(opcao >= lowerLimit && opcao <= upperLimit)
+                        if(opcao == 1)
+                            return opcao;
+                    else 
+                        throw new FormatException();
                 }
-                
+                catch(FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Opção inválida. Tente novamente.\n");
+                    Console.ResetColor();
+                }
+            }
+        }
+
+        static public int OptionReadValidationWithEscape(int escape,int lowerLimit, int upperLimit)
+        {
+            int opcao;
+            while(true)
+            {
+                try{
+                    Console.Write("\nOpção: ");
+                    opcao = Convert.ToInt32(Console.ReadLine());
+                    if(opcao == escape || (opcao >= lowerLimit && opcao <= upperLimit))
+                       return opcao;
+                    else 
+                        throw new FormatException();
+                }
+                catch(FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Opção inválida. Tente novamente.\n");
+                    Console.ResetColor();
+                }
             }
         }
     }

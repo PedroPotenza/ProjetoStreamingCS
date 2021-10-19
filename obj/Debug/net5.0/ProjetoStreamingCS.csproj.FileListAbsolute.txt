@@ -46,7 +46,6 @@ C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStre
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.AssemblyInfoInputs.cache
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.AssemblyInfo.cs
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.csproj.CoreCompileInputs.cache
-C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.csproj.CopyComplete
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.dll
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ref\ProjetoStreamingCS.dll
 C:\Users\Pedro Fernandes\Desktop\ProjetoStreamingCS\obj\Debug\net5.0\ProjetoStreamingCS.pdb

@@ -33,7 +33,6 @@ namespace Items.Menu{
                 {
                     
                     lineCount++;
-                    // Console.WriteLine("Linha: " + lineCount);
                     string[] atribute = line.Split(';');
                     Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],atribute[4],int.Parse(atribute[5]));
                     if(client.cpf == cpfLocal){
@@ -79,13 +78,16 @@ namespace Items.Menu{
             Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
             Console.ResetColor();
 
-            Console.Write("Nome: ");
-            dataString = Console.ReadLine();
+            dataString = Validation.StringReadValidation("Nome: ");
             if(dataString != "-1" ) client.name = dataString;
 
-            Console.Write("Email: ");
-            dataString = Console.ReadLine();
+            dataString = Validation.StringReadValidation("Email: ");
             if(dataString != "-1" ) client.email = dataString;
+
+            dataString = Validation.StringReadValidation("Telefone: ");
+            if(dataString != "-1") client.phone = dataString;
+
+            
         }
     }
     

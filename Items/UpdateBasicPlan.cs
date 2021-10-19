@@ -19,6 +19,7 @@ namespace Items.Menu{
             var reader = File.OpenText(filePath);
             
             string line = reader.ReadLine();
+            reader.Close();
             string[] atribute = line.Split(';');
 
             Plan plan = new Plan(atribute[0], int.Parse(atribute[1]), atribute[2], int.Parse(atribute[3]), int.Parse(atribute[4]), int.Parse(atribute[5]), int.Parse(atribute[6]), bool.Parse(atribute[7]));
