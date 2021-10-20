@@ -13,16 +13,8 @@ namespace Items.Menu{
         }
 
         public void Execute(){
-            
-            string filePath = @"./DataBase/Plans.txt";
-            
-            var reader = File.OpenText(filePath);
-            
-            string line = reader.ReadLine();
-            reader.Close();
-            string[] atribute = line.Split(';');
-
-            Plan plan = new Plan(atribute[0], int.Parse(atribute[1]), atribute[2], int.Parse(atribute[3]), int.Parse(atribute[4]), int.Parse(atribute[5]), int.Parse(atribute[6]), bool.Parse(atribute[7]));
+                  
+            Plan plan = new Plan(Plan.PlanType.Basic);
             plan.ShowPlan();
 
             Console.WriteLine("\nVocê deseja atualizar as informações do " + Name() + " ?");
@@ -36,7 +28,7 @@ namespace Items.Menu{
                 float dataFloat;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
+                Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1\n");
                 Console.ResetColor();
                 
                 dataInt = Validation.IntReadValidation("Quantidade de dispositivos simultâneos: ");
@@ -75,9 +67,8 @@ namespace Items.Menu{
 
                 dataString = string.Join(";", newLine);
 
-                FileUtil.UpdateLine(filePath, dataString, 1);
+                FileUtil.UpdateLine(@"./DataBase/Plans.txt", dataString, 1);
                 
-
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
                 Console.ResetColor();

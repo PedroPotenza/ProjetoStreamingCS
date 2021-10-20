@@ -10,7 +10,7 @@ namespace ProjetoStreamingCS
             while(true)
             {
                
-                Console.Write("\n" + mensage);
+                Console.Write(mensage);
                 bool valid = int.TryParse(Console.ReadLine(), out dataInt); 
 
                 if(valid)
@@ -18,7 +18,7 @@ namespace ProjetoStreamingCS
                 else 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Entrada inválida. Tente novamente.");
+                    Console.Write("Entrada inválida. Tente novamente.\n");
                     Console.ResetColor();
                 }                  
             }        
@@ -29,7 +29,7 @@ namespace ProjetoStreamingCS
             float dataFloat = -1;
             while(true)
             {
-                Console.Write("\n" + mensage);
+                Console.Write(mensage);
                 bool valid = float.TryParse(Console.ReadLine(), out dataFloat); 
 
                 if(valid)
@@ -37,7 +37,7 @@ namespace ProjetoStreamingCS
                 else 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Entrada inválida. Tente novamente.");
+                    Console.Write("Entrada inválida. Tente novamente.\n");
                     Console.ResetColor();
                 }                  
             }  
@@ -49,12 +49,12 @@ namespace ProjetoStreamingCS
             while(true)
             {
                 
-                Console.Write("\n" + mensage);
+                Console.Write(mensage);
                 dataString = Console.ReadLine();
                 if(string.IsNullOrEmpty(dataString))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Entrada inválida. Tente novamente.");
+                    Console.Write("Entrada inválida. Tente novamente.\n");
                     Console.ResetColor();
                 }
                 else 
@@ -103,16 +103,15 @@ namespace ProjetoStreamingCS
                 try{
                     Console.Write("\nOpção: ");
                     opcao = Convert.ToInt32(Console.ReadLine());
-                    if(opcao >= lowerLimit && opcao <= upperLimit)
-                        if(opcao == 1)
-                            return opcao;
+                    if(opcao >= lowerLimit && opcao <= upperLimit) 
+                        return opcao;
                     else 
                         throw new FormatException();
                 }
                 catch(FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Opção inválida. Tente novamente.\n");
+                    Console.Write("Opção inválida. Tente novamente.");
                     Console.ResetColor();
                 }
             }
@@ -134,7 +133,7 @@ namespace ProjetoStreamingCS
                 catch(FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Opção inválida. Tente novamente.\n");
+                    Console.Write("Opção inválida. Tente novamente.");
                     Console.ResetColor();
                 }
             }

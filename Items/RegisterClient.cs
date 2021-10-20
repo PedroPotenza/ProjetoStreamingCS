@@ -9,7 +9,7 @@ namespace Items.Menu{
     {
         
         public string Name(){
-            return ("Cadastrar Cliente");
+            return ("Cadastrar/Atualizar Cliente");
         }
 
         public void Execute(){
@@ -21,10 +21,8 @@ namespace Items.Menu{
             Console.Write("CPF: ");
             cpfLocal = Console.ReadLine();
 
-            //seria possivel fazer uma função dentro de Client.cs fazendo essa busca(se o cliente existe)? (e consequentemente instanciando um client dentro da classe client)
-            //o retorno seria o cliente ja cadastrado
-            
             var lineCount = 0;
+            bool exist = true;
             string line;
             using (var reader = File.OpenText(filePath))
             {
@@ -34,8 +32,10 @@ namespace Items.Menu{
                     
                     lineCount++;
                     string[] atribute = line.Split(';');
-                    Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],atribute[4],int.Parse(atribute[5]));
+                    Client client = new Client(int.Parse(atribute[0]),atribute[1],atribute[2],atribute[3],atribute[4],Enum.Parse<Client.PlanType>(atribute[5]));
                     if(client.cpf == cpfLocal){
+
+
                        
                         client.ShowClient();
                         Console.WriteLine("Você deseja atualizar os dados do(a) cliente \"" + client.name + "\" ?");
@@ -44,7 +44,8 @@ namespace Items.Menu{
                         
                         if(opcao)
                         {
-                            UpdateClient(client);
+                            reader.Close();
+                            UpdateClient(client, lineCount);
                         }
                         else
                         {
@@ -56,20 +57,32 @@ namespace Items.Menu{
                 }
                 if(line == null)
                 {
-                    Console.WriteLine("CPF não cadastrado!");
-
-                    Console.WriteLine("\nVocê deseja cadastrar um cliente com o cpf \"" + cpfLocal + "\" ?");
-            
-                    bool opcao = Validation.ReadYesOrNot();
-                    // opcao.Equals(1) ? RegisterClientInFile() : BackToMenu(); 
-                    FileUtil.BackToMenu();   
+                    exist = false;
                 }
                 
              }
 
+             if(!exist)
+             {
+                 Console.WriteLine("CPF não cadastrado!");
+
+                Console.WriteLine("\nVocê deseja cadastrar um cliente com o cpf \"" + cpfLocal + "\" ?");
+            
+                bool opcao = Validation.ReadYesOrNot();
+
+                if(opcao)
+                {
+                    RegisterClientInFile(cpfLocal);
+                }
+                else
+                {
+                    FileUtil.BackToMenu();  
+                }
+             }
+
         }
 
-        private void UpdateClient(Client client)
+        private void UpdateClient(Client client, int lineCount)
         {
             //int dataInt;
             string dataString;
@@ -87,6 +100,79 @@ namespace Items.Menu{
             dataString = Validation.StringReadValidation("Telefone: ");
             if(dataString != "-1") client.phone = dataString;
 
+            Console.Write("Plano: " + client.planType.ToString());
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\nPara efetuar a mudança de plano, é necessario atualizar o contrato no menu principal!\n");
+            Console.ResetColor();
+  
+            string[] newLine = {
+                client.id.ToString(),
+                client.cpf,
+                client.name,
+                client.email,
+                client.phone,
+                client.planType.ToString()
+            };
+
+            dataString = string.Join(";", newLine);
+            FileUtil.UpdateLine(@"./DataBase/Clients.txt", dataString, lineCount);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
+            Console.ResetColor();
+            //avisa que o contrato só pode ser mudado na opcao do menu principal "Alterar Contrato"
+
+        }
+
+        private void RegisterClientInFile(string cpf)
+        {
+            string dataString;
+            Client client = new Client();
+            
+            Console.Write("\nCPF: " + cpf + "\n");
+            client.cpf = cpf;
+            client.name = Validation.StringReadValidation("Nome: ");
+            client.email = Validation.StringReadValidation("Email: ");
+            client.phone = Validation.StringReadValidation("Telefone: ");
+
+            Console.WriteLine("Tipo de Plano: ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\t(1) Basico");
+            Console.WriteLine("\t(2) Padrão");
+            Console.WriteLine("\t(3) Premium");
+            Console.ResetColor();
+
+            TypeSelection: 
+            int opcao = Validation.OptionReadValidation(1,3);
+            Plan plan = new Plan((Plan.PlanType)opcao);
+
+            Console.Write("\n");
+            plan.ShowPlan();
+
+            Console.WriteLine("\nVocê confirma a assinatura nesse plano?");
+            bool confirm = Validation.ReadYesOrNot();
+            if(confirm)
+            {
+                client.planType = (Client.PlanType)opcao;
+                string[] newLine = {
+                    client.id.ToString(),
+                    client.cpf,
+                    client.name,
+                    client.email,
+                    client.phone,
+                    client.planType.ToString()
+                };
+
+                dataString = string.Join(";", newLine);
+                FileUtil.AddLine(@"./DataBase/Clients.txt", dataString);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\n\tCliente Cadastrado com Sucesso!\n");
+                Console.ResetColor();
+            }
+            else 
+                goto TypeSelection; //repeat type selection, the user is obrigatory to enter a plan.
+                //REVIEW: This is really the best way to do? Maybe have a escape to user cancel the process... idk
             
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ProjetoStreamingCS;
 
 namespace Entities
 {
@@ -21,16 +22,16 @@ namespace Entities
 
         public Client()
         {
-
+            this.id = 56213 + (213* FileUtil.CountFile(@"./DataBase/Clients.txt"));
         }
-        public Client(int id, string cpf, string name, string email, string phone, int planType)
+        public Client(int id, string cpf, string name, string email, string phone, PlanType planType)
         {
             this.id = id;
             this.cpf = cpf;
             this.name = name;
             this.email = email;
             this.phone = phone;
-            this.planType = (PlanType) planType;
+            this.planType = planType;
         }
 
         

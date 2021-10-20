@@ -16,7 +16,7 @@ namespace ProjetoStreamingCS
 
         static public void AddLine(string filePath, string newText)
         {
-            File.AppendAllText(filePath, newText);
+            File.AppendAllText(filePath, Environment.NewLine + newText);
         }
 
         static public int CountFile(string filePath)
