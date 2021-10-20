@@ -120,7 +120,6 @@ namespace Items.Menu{
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
             Console.ResetColor();
-            //avisa que o contrato só pode ser mudado na opcao do menu principal "Alterar Contrato"
 
         }
 
