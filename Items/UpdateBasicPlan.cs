@@ -68,7 +68,7 @@ namespace Items.Menu{
                 dataString = string.Join(";", newLine);
 
                 FileUtil.UpdateLine(@"./DataBase/Plans.txt", dataString, 1);
-                
+
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
                 Console.ResetColor();
