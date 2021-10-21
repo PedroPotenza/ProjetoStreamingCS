@@ -32,7 +32,7 @@ namespace Entities
 
         public Movie(int id)
         {
-            var reader = File.OpenText(@"./DataBase/Movie.txt");
+            var reader = File.OpenText(@"./DataBase/Movies.txt");
             
             for(int i=1; i < id - 1000; i++)
                 reader.ReadLine();
