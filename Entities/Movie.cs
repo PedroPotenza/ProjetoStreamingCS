@@ -27,7 +27,7 @@ namespace Entities
 
         public Movie()
         {
-            this.id = 1000 + FileUtil.CountFile(@"./DataBase/Movie.txt"); 
+            this.id = 1000 + FileUtil.CountFile(@"./DataBase/Movies.txt"); 
         }
 
         public Movie(int id)
@@ -49,6 +49,32 @@ namespace Entities
             this.rating = Enum.Parse<MovieRating>(atribute[5]);
         }
 
+        public Movie(string name)
+        {
+            var reader = File.OpenText(@"./DataBase/Movies.txt");
+            
+            while(true)
+            {           
+                string line = reader.ReadLine();
+                string[] atribute = line.Split(';');
+
+                string nameLine = atribute[1];
+             
+                if(nameLine == name)
+                {
+                    this.id = int.Parse(atribute[0]);
+                    this.name = atribute[1];
+                    this.plot = atribute[2];
+                    this.year = int.Parse(atribute[3]);
+                    this.director = atribute[4];
+                    this.rating = Enum.Parse<MovieRating>(atribute[5]);
+                    break;
+                }
+            }
+
+            reader.Close();
+        }
+
         public void ShowMovieShort()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -60,8 +86,20 @@ namespace Entities
             Console.ResetColor();
         }
 
-        
-        
+        public void ShowMovieLong()
+        {
+            Console.Clear();
+            Console.WriteLine("\t".PadRight(57,'-'));
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\tId: " + id);
+            Console.WriteLine("\tNome: " + name);
+            Console.WriteLine("\tSinopse: " + plot);
+            Console.WriteLine("\tAno: " + year);
+            Console.WriteLine("\tDiretor: " + director);
+            Console.WriteLine("\tClassificação: " + rating);
+            Console.WriteLine("\tGeneros: ");
+            Console.ResetColor();
+            Console.WriteLine("\t".PadRight(57,'-'));
+        }
     }
-
 }

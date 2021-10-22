@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Entities;
 
 namespace ProjetoStreamingCS
 {
@@ -60,7 +61,7 @@ namespace ProjetoStreamingCS
             return(lineCount);
         }
 
-         static public void BackToMenu()
+        static public void BackToMenu()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
