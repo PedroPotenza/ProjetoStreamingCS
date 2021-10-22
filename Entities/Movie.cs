@@ -41,7 +41,7 @@ namespace Entities
             reader.Close();
             string[] atribute = line.Split(';');
 
-            this.id = id;
+            this.id = int.Parse(atribute[0]);
             this.name = atribute[1];
             this.plot = atribute[2];
             this.year = int.Parse(atribute[3]);
