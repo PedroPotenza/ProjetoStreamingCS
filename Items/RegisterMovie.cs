@@ -51,28 +51,40 @@ namespace Items.Menu{
 
         private void UpdateMovie()
         {
-            int firstIdOfPage = 1; 
+
+            int firstIdOfPage = 1;
             ChangePage:
             Console.Clear(); 
-            Console.WriteLine( "--------- LISTA DE FILMES ---------");
+            Console.WriteLine("------------------------------------------ LISTA DE FILMES ----------------------------");
             
-            
-                ShowListMovie(firstIdOfPage-1);
+                Console.WriteLine("\n\tId\tNome\t\t\t\t\t\t\tClassificação");
+                bool HaveNextPage = ShowListMovie(firstIdOfPage, firstIdOfPage+9);
+                if(!HaveNextPage) HaveNextPage = false; //if in this page dont have any more movies, dont be possible go to next page
 
-            Console.WriteLine( "-----------------------------------");
+            Console.WriteLine("\n----------------------------------------------[ 1/10]-----------------------------------");
             
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nPara avançar uma página na lista de filmes digite \"next\"");
+            Console.WriteLine("Para voltar uma página na lista de filmes digite \"back\"");
+            Console.ResetColor();
+
             Console.WriteLine("\nInforme o Id ou o Nome do Filme");
             string dataString = Validation.StringReadValidation("Filme Selecionado: ");
 
-            if(dataString == "prox")
+            if(dataString == "next")
             {
-                firstIdOfPage =+ 10;
+                if(HaveNextPage){
+                    firstIdOfPage += 10;
+                }
                 goto ChangePage;
             } 
 
-            if(dataString == "ant" && firstIdOfPage != 1)
+            if(dataString == "back")
             {
-                firstIdOfPage =- 10;
+                if(firstIdOfPage != 1)
+                {
+                    firstIdOfPage -= 10;    
+                }
                 goto ChangePage;
             }
 
@@ -85,15 +97,22 @@ namespace Items.Menu{
             Console.WriteLine("Update Movie");
         }
 
-        private void ShowListMovie(int i)
+        private bool ShowListMovie(int lower, int upper)
         {
-            int x = i+10;
-            for(; i<x; i++)
+            for(; lower<=upper; lower++)
             {
-                Movie movie = new Movie(1000+i);
-                movie.ShowMovieShort();
-
+                try{
+                    Movie movie = new Movie(1000+lower);
+                    movie.ShowMovieShort();
+                    
+                }
+                catch(NullReferenceException)
+                {
+                    Console.WriteLine();
+                    return false;
+                }
             }
+            return true;
         }
     }
 }

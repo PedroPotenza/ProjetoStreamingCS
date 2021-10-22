@@ -52,7 +52,11 @@ namespace Entities
         public void ShowMovieShort()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\t" + id + "\t" + name + "\t" + rating);
+            Console.Write("\t" + id);
+            Console.Write("\t" + name );
+            for(int i = name.Length; i <=50; i++)
+                Console.Write(" ");
+            Console.Write("\t" + rating + "\n");
             Console.ResetColor();
         }
 
