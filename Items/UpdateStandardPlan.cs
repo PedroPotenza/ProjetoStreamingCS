@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using InputValidation;
 using ProjetoStreamingCS;
 
 namespace Items.Menu{
@@ -31,16 +32,16 @@ namespace Items.Menu{
                 Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1\n");
                 Console.ResetColor();
 
-                dataInt = Validation.IntReadValidation("\nQuantidade de dispositivos simultâneos: ");
+                dataInt = Validation.GenericRead<int>("\nQuantidade de dispositivos simultâneos: ");
                 if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
 
-                dataString = Validation.StringReadValidation("Qualidade maxima de imagem: ");
+                dataString = Validation.StringRead("Qualidade maxima de imagem: ");
                 if(dataString != "-1" ) plan.maxQuality = dataString;
 
-                dataInt = Validation.IntReadValidation("Tempo de fidelidade: ");
+                dataInt = Validation.GenericRead<int>("Tempo de fidelidade: ");
                 if(dataInt != -1 ) plan.loyaltyFineTime = dataInt;
 
-                dataFloat = Validation.FloatReadValidation("Multa de fidelidade: ");
+                dataFloat = Validation.GenericRead<float>("Multa de fidelidade: ");
                 if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat; 
 
                 Console.Write("Limite de filmes: Ilimitado");
@@ -53,7 +54,7 @@ namespace Items.Menu{
                 Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
                 Console.ResetColor();
                 
-                dataFloat = Validation.FloatReadValidation("Valor do plano: ");
+                dataFloat = Validation.GenericRead<float>("Valor do plano: ");
                 if(dataFloat != -1 ) plan.valor = (int)dataFloat; 
     
                 string[] newLine = {

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using InputValidation;
 using ProjetoStreamingCS;
 
 namespace Items.Menu{
@@ -91,13 +92,13 @@ namespace Items.Menu{
             Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1");
             Console.ResetColor();
 
-            dataString = Validation.StringReadValidation("Nome: ");
+            dataString = Validation.StringRead("Nome: ");
             if(dataString != "-1" ) client.name = dataString;
 
-            dataString = Validation.StringReadValidation("Email: ");
+            dataString = Validation.StringRead("Email: ");
             if(dataString != "-1" ) client.email = dataString;
 
-            dataString = Validation.StringReadValidation("Telefone: ");
+            dataString = Validation.StringRead("Telefone: ");
             if(dataString != "-1") client.phone = dataString;
 
             Console.Write("Plano: " + client.planType.ToString());
@@ -130,9 +131,9 @@ namespace Items.Menu{
             
             Console.Write("\nCPF: " + cpf + "\n");
             client.cpf = cpf;
-            client.name = Validation.StringReadValidation("Nome: ");
-            client.email = Validation.StringReadValidation("Email: ");
-            client.phone = Validation.StringReadValidation("Telefone: ");
+            client.name = Validation.StringRead("Nome: ");
+            client.email = Validation.StringRead("Email: ");
+            client.phone = Validation.StringRead("Telefone: ");
 
             Console.WriteLine("Tipo de Plano: ");
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -142,7 +143,7 @@ namespace Items.Menu{
             Console.ResetColor();
 
             TypeSelection: 
-            int opcao = Validation.OptionReadValidation(1,3);
+            int opcao = Validation.OptionRead(1,3);
             Plan plan = new Plan((Plan.PlanType)opcao);
 
             Console.Write("\n");

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Entities;
+using InputValidation;
 using ProjetoStreamingCS;
 
 namespace Items.Menu{
@@ -20,7 +21,7 @@ namespace Items.Menu{
             Console.WriteLine(" 2 - Atualizar um filme existente");
             Console.WriteLine(" 3 - Voltar ao menu principal");
 
-            int opcao = Validation.OptionReadValidation(1,3);
+            int opcao = Validation.OptionRead(1,3);
             
             switch(opcao)
             {

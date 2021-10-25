@@ -1,11 +1,12 @@
 using System;
 using Entities;
+using InputValidation;
 
 namespace ProjetoStreamingCS
 {
     public class ListUtil
     {
-        static public void ShowListMovie(string mensage)
+        static public void ShowListMovie(string message)
         {
             
             int firstIdOfPage = 1;
@@ -27,9 +28,10 @@ namespace ProjetoStreamingCS
                 Console.WriteLine("Para voltar ao menu principal digite \"home\"");
                 Console.ResetColor();
 
-                Console.WriteLine("\n" + mensage);
+                Console.WriteLine("\n" + message);
             Ask:
-                string dataString = Validation.StringReadValidation("Filme Selecionado: ");
+                string dataString = Validation.StringRead("Filme Selecionado: ");
+                Validation.GenericRead<int>("");
 
             if(dataString == "next")
             {
