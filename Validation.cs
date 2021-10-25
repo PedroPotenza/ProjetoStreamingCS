@@ -2,7 +2,8 @@ using System;
 
 namespace InputValidation
 {
-    /// <summary>Do all the validations of inputs to avoid Null inputs or Invalid Formats.
+    /// <summary>
+    /// Do all the validations of inputs to avoid Null inputs or Invalid Formats.
     /// If any input be invalid, the same error message is shown and the user's keep on a loop of read data waiting a valid input.
     /// </summary>    
     static public class Validation
@@ -71,7 +72,7 @@ namespace InputValidation
         //look: a new idea of parameter: max char of a string? and a default value to string without this limitation 
 
         /// <summary>
-        /// Read a string input and validat. The function keep a loop where's need a valid data to exit.
+        /// Read a string input and validate. The function keep a loop where's need a valid data to exit.
         /// Validate if the string data's <c>null</c>.</summary>
         /// <param name="message"> Write on console before read the input. </param>
         /// <returns> A valid string data</returns>

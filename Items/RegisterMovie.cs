@@ -52,9 +52,12 @@ namespace Items.Menu{
 
         private void UpdateMovie()
         {
-
-            ListUtil.ShowListMovie("Informe o Id ou o Nome do filme a ser atualizado.");
+            Movie movie = new Movie();
+             bool update = Movie.ControllerOfListMovies("Informe o Id ou o Nome do filme a ser atualizado.", movie);
             
+
+            if(update)
+                //recebe as infos mexendo no objeto movie
             Console.WriteLine("\nUpdate Movie");
         }
 
