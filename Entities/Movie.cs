@@ -188,7 +188,7 @@ namespace Entities
 
                         default:
                         {
-                            bool findSucess = FindMovie(dataString, movie);
+                            bool findSucess = FindMovie(dataString, ref movie);
                             
                             if(findSucess)
                             {
@@ -211,7 +211,7 @@ namespace Entities
             }
         }
 
-        static private bool FindMovie(string dataMovie, Movie movie)
+        static private bool FindMovie(string dataMovie, ref Movie movie)
         {
 
             bool findById = Int32.TryParse(dataMovie, out int Id);
@@ -221,7 +221,7 @@ namespace Entities
                 if(Id >= 1001 && Id<=1000+FileUtil.CountFile(@"./DataBase/Movies.txt"))
                 {
                     movie = new Movie(Id);
-                    movie.ShowMovieLong();
+                    //movie.ShowMovieLong();
                     return true;
                 }
                 else
