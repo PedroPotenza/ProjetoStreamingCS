@@ -2,9 +2,10 @@ using System;
 using System.IO;
 using Entities;
 using InputValidation;
-using ProjetoStreamingCS;
+using Model.FileUtil;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
     internal class RegisterClient : IItemMenu
     {

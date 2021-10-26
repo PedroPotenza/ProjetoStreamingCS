@@ -1,8 +1,8 @@
-using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace UpdatePlan.Items{
 
-    internal class UpdatePlan : IItemMenu
+    internal class UpdatePlanMenu : IItemMenu
     {
         
         public string Name(){

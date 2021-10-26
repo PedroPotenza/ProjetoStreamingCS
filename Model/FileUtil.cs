@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Entities;
 
-namespace ProjetoStreamingCS
+namespace Model.FileUtil
 {
     public class FileUtil
     {

@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class FrequencyMovie : IItemMenu
+    internal class WatchMovie : IItemMenu
     {
         
         public string Name(){
-            return ("Frequencia de um Filme");
+            return ("Assistir filme");
         }
 
         public void Execute(){

@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class ExcessClients : IItemMenu
+    internal class FrequencyMovie : IItemMenu
     {
         
         public string Name(){
-            return ("Clientes Execentes");
+            return ("Frequencia de um Filme");
         }
 
         public void Execute(){

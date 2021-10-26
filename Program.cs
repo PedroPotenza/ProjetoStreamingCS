@@ -1,7 +1,6 @@
 ﻿using System;
-using Items.Menu;
-
-
+using Home.Items;
+using UpdatePlan.Items;
 
 namespace ProjetoStreamingCS
 {
@@ -14,7 +13,7 @@ namespace ProjetoStreamingCS
             menu.Add(new ExitSystem());
             menu.Add(new RegisterClient());
             menu.Add(new RegisterMovie());
-            menu.Add(new UpdatePlan());
+            menu.Add(new UpdatePlanMenu());
             menu.Add(new RegisterContract());
             menu.Add(new WatchMovie());
             menu.Add(new CancelContract());

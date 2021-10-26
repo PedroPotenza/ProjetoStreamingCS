@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class ShowClient : IItemMenu
+    internal class ExcessClients : IItemMenu
     {
         
         public string Name(){
-            return ("Dados Cliente");
+            return ("Clientes Execentes");
         }
 
         public void Execute(){

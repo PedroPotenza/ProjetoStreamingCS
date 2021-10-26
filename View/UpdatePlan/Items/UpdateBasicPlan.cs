@@ -1,10 +1,10 @@
 using System;
-using System.IO;
 using Entities;
 using InputValidation;
-using ProjetoStreamingCS;
+using Model.FileUtil;
+using View.Menu;
 
-namespace Items.Menu{
+namespace UpdatePlan.Items{
 
     internal class UpdateBasicPlan : IItemMenu
     {

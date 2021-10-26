@@ -1,4 +1,4 @@
-namespace Items.Menu
+namespace View.Menu
 {
     internal interface IItemMenu
     {

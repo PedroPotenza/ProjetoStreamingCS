@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class CancelContract : IItemMenu
+    internal class ShowHistory : IItemMenu
     {
         
         public string Name(){
-            return ("Cancelar Contrato");
+            return ("Historico Cliente");
         }
 
         public void Execute(){

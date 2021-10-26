@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class GenerateBill : IItemMenu
+    internal class RegisterContract : IItemMenu
     {
         
         public string Name(){
-            return ("Gerar fatura");
+            return ("Cadastrar Contrato");
         }
 
         public void Execute(){

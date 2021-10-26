@@ -1,4 +1,4 @@
-56213;49795442821;Pedro H Potenza;pedro.potenza@gmail.com;11999255115;Basic
+56213;49795442821;Pedro H Potenza;pedropotenza@unesp.br;11999255115;Basic
 56426;58045083263;Joaquim Nathan Ribeiro;Joaquim.Ribeiro@gmail.com;11969954707;Standard
 56639;87510558727;Allana da Costa; Allana.Costa@gmail.com;19969765752;Premium
 56852;1;Dononinho e Chamito;Lets.unesp@gmail.com;(16)3;Standard

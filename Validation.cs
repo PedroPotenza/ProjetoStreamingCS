@@ -14,8 +14,7 @@ namespace InputValidation
         /// <param name="message"> Write on console before read the input. </param>
         /// <typeparam name="T"> The type read and validade by the fuction.</typeparam>
         /// <exception cref="ApplicationException">If something really strange happen.</exception>
-        /// <returns> A valid data of type T</returns>
-        
+        /// <returns> A valid data of type T</returns>   
         static public T GenericRead<T>(string message) where T : struct
         {
             bool isValid = false;

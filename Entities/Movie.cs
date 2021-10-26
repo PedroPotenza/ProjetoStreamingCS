@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using InputValidation;
+using Model.FileUtil;
 using ProjetoStreamingCS;
 
 namespace Entities
@@ -141,6 +142,7 @@ namespace Entities
                 Console.WriteLine("Para voltar ao menu principal digite \"home\"");
                 Console.ResetColor();
         }
+        
         static private void ShowItemMovie(int lower, int upper)
         {
             for(;lower<=upper; lower++)
@@ -240,7 +242,6 @@ namespace Entities
                             }
                             
                         }
-
                     }
                 }
             }

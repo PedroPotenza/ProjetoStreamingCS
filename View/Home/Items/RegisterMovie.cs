@@ -2,9 +2,11 @@ using System;
 using System.IO;
 using Entities;
 using InputValidation;
+using Model.FileUtil;
 using ProjetoStreamingCS;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
     
     internal class RegisterMovie : IItemMenu
     {
@@ -58,11 +60,10 @@ namespace Items.Menu{
             if(movie != null)
                 movie.ShowMovieShort();
             else
-                {
-                    Movie movietest = new Movie("arthur");
-                }
+            {
+                FileUtil.BackToMenu();      
+            }
 
-            //    FileUtil.BackToMenu();
         }
 
     }

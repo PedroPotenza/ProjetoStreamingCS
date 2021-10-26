@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class WatchMovie : IItemMenu
+    internal class CancelContract : IItemMenu
     {
         
         public string Name(){
-            return ("Assistir filme");
+            return ("Cancelar Contrato");
         }
 
         public void Execute(){

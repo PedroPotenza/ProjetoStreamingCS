@@ -1,12 +1,13 @@
 using System;
+using View.Menu;
 
-namespace Items.Menu{
+namespace Home.Items{
 
-    internal class RegisterContract : IItemMenu
+    internal class ShowClient : IItemMenu
     {
         
         public string Name(){
-            return ("Cadastrar Contrato");
+            return ("Dados Cliente");
         }
 
         public void Execute(){
