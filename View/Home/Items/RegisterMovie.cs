@@ -1,9 +1,7 @@
 using System;
-using System.IO;
 using Entities;
 using InputValidation;
-using Model.FileUtil;
-using ProjetoStreamingCS;
+using Utils.FileUtil;
 using View.Menu;
 
 namespace Home.Items{

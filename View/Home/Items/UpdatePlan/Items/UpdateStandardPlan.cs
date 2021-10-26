@@ -1,35 +1,38 @@
 using System;
 using Entities;
 using InputValidation;
-using Model.FileUtil;
+using Utils.FileUtil;
 using View.Menu;
 
 namespace UpdatePlan.Items{
 
-    internal class UpdatePremiumPlan : IItemMenu
+    internal class UpdateStandardPlan : IItemMenu
     {
         
-        public string Name(){
-            return ("Plano Premium");
+        public string Name()
+        {
+            return ("Plano Padrão");
         }
 
-        public void Execute(){
-    
-            Plan plan = new Plan(Plan.PlanType.Premium);
-            plan.ShowPlan();
+        public void Execute()
+        {
             
+            Plan plan = new Plan(Plan.PlanType.Standard);
+            plan.ShowPlan();
+
             Console.WriteLine("\nVocê deseja atualizar as informações do " + Name() + " ?");
             
-            bool opcao = Validation.ReadYesOrNot();            
-            
+            bool opcao = Validation.ReadYesOrNot();
+
             if(opcao)
             {
                 int dataInt;
                 string dataString;
                 float dataFloat;
-                int opcaoLocal;
 
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\nCaso queira que alguma propriedade se mantenha como estava antes, apenas digite -1\n");
+                Console.ResetColor();
 
                 dataInt = Validation.GenericRead<int>("\nQuantidade de dispositivos simultâneos: ");
                 if(dataInt != -1 ) plan.simultaneousDevices = dataInt;
@@ -43,25 +46,16 @@ namespace UpdatePlan.Items{
                 dataFloat = Validation.GenericRead<float>("Multa de fidelidade: ");
                 if(dataFloat != -1 ) plan.loyaltyFine = (int)dataFloat; 
 
-                Console.Write("\nLimite de filmes: Ilimitado");
+                Console.Write("Limite de filmes: Ilimitado");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("\nApenas o plano Basico possui limitação de filmes.\n");
                 Console.ResetColor();
 
-                Console.Write("\nDownload de filmes: ");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("\t(1) Sim");
+                Console.Write("Download de filmes: Não");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\nApenas o plano Premium pode permitir download de filmes.\n");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write(" \t(2) Não");
-                Console.ResetColor();
-
-                opcaoLocal = Validation.OptionRead(1,2,-1); 
-
-                 if(opcaoLocal!=-1)
-                    plan.download = opcaoLocal.Equals(1) ? true : false;
-                    //if(opcaoLocal == 1) plan.download = true; else plan.download = false;
-
+                
                 dataFloat = Validation.GenericRead<float>("Valor do plano: ");
                 if(dataFloat != -1 ) plan.valor = (int)dataFloat; 
     
@@ -78,7 +72,7 @@ namespace UpdatePlan.Items{
 
                 dataString = string.Join(";", newLine);
 
-                FileUtil.UpdateLine(@"./DataBase/Plans.txt", dataString, 3);
+                FileUtil.UpdateLine(@"./DataBase/Plans.txt", dataString, 2);
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\tPlano Atualizado com Sucesso!\n");
@@ -87,7 +81,7 @@ namespace UpdatePlan.Items{
             else
             {
                 FileUtil.BackToMenu();
-            }
+            }        
         }
     }
     

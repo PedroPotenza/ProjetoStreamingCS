@@ -7,7 +7,8 @@ namespace Entities
     {
         public enum PlanType
         {
-            Basic = 1,
+            NotSet = 0,
+            Basic,
             Standard,
             Premium
         }

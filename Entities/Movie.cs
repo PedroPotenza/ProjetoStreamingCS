@@ -1,8 +1,7 @@
 using System;
 using System.IO;
 using InputValidation;
-using Model.FileUtil;
-using ProjetoStreamingCS;
+using Utils.FileUtil;
 
 namespace Entities
 {
@@ -11,7 +10,8 @@ namespace Entities
 
         public enum MovieRating
         {
-            G = 1,
+            NotSet = 0,
+            G,
             PG,
             PG13,
             R,

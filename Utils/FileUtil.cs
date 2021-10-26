@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Entities;
 
-namespace Model.FileUtil
+namespace Utils.FileUtil
 {
     public class FileUtil
     {
