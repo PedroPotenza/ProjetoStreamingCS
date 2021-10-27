@@ -1,15 +1,34 @@
-using System;
 using System.IO;
 using System.Linq;
 
-namespace Utils.FileUtil
+namespace Entities.Controller
 {
-    public class FileUtil
+    abstract class Controller
     {
         
-        static public void UpdateLine(string filePath, string newText, int line_to_edit)
+        static public string filePath;
+
+        virtual internal void changeFilePath()
         {
-        
+
+        }
+
+        static internal int Count() 
+        {
+            var lineCount = 0;
+            using (var reader = File.OpenText(filePath))
+            {
+                while (reader.ReadLine() != null)
+                {
+                    lineCount++;
+                }
+            }
+            return(lineCount);
+        }
+
+        static public void Update(string newText, int line_to_edit)
+        {
+            
             string tempFile = @"./DataBase/Temp.txt";
 
             // Read from the target file and write to a new file.
@@ -40,31 +59,7 @@ namespace Utils.FileUtil
             //https://stackoverflow.com/questions/1971008/edit-a-specific-line-of-a-text-file-in-c-sharp
             //https://stackoverflow.com/questions/3218910/rename-a-file-in-c-sharp
             //https://docs.microsoft.com/pt-br/dotnet/api/microsoft.visualbasic.fileio.filesystem.renamefile?view=net-5.0
-        }
-
-        static public void AddLine(string filePath, string newText)
-        {
-            File.AppendAllText(filePath, Environment.NewLine + newText);
-        }
-
-        static public int CountFile(string filePath)
-        {
-            var lineCount = 0;
-            using (var reader = File.OpenText(@filePath))
-            {
-                while (reader.ReadLine() != null)
-                {
-                    lineCount++;
-                }
-            }
-            return(lineCount);
-        }
-
-        static public void BackToMenu()
-        {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\nPressione qualquer tecla para retornar ao menu principal.");
-            Console.ResetColor();
+            
         }
     }
 }

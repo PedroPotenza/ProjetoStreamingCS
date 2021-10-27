@@ -154,6 +154,9 @@ namespace Entities.View
                             }
                             else 
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Não foi possivel localizar o filme \"{0}\"", dataString);
+                                Console.ResetColor();
                                 return null;
                             }
                             
