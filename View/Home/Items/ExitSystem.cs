@@ -1,7 +1,7 @@
 using System;
 using View.Menu;
 
-namespace Home.Items{
+namespace Items{
         internal class ExitSystem : IItemMenu
         {
             

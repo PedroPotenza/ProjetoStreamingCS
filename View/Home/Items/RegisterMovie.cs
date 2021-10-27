@@ -1,10 +1,11 @@
 using System;
 using Entities;
-using InputValidation;
+using Utils.InputValidation;
 using Utils.FileUtil;
 using View.Menu;
+using Entities.View;
 
-namespace Home.Items{
+namespace Items{
     
     internal class RegisterMovie : IItemMenu
     {
@@ -31,9 +32,9 @@ namespace Home.Items{
                     break;
                 }
 
-                case 2:{
+                case 2:{ //update
                     
-                    UpdateMovie();
+                    Movie movie = MovieView.ControllerOfListMovies("Informe o Id ou o Nome do filme a ser atualizado.");
                     break;
                 }
 
@@ -48,20 +49,6 @@ namespace Home.Items{
         {
             //se ele quer adicionar um, atualiza o id automatico e pede as informações
             Console.WriteLine( "RegisterMovieInFile");
-        }
-
-        private void UpdateMovie()
-        {
-            //Movie movie = new Movie();
-            Movie movie = Movie.ControllerOfListMovies("Informe o Id ou o Nome do filme a ser atualizado.");
-            
-            if(movie != null)
-                movie.ShowMovieShort();
-            else
-            {
-                FileUtil.BackToMenu();      
-            }
-
         }
 
     }

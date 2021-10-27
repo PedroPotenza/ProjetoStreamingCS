@@ -1,5 +1,5 @@
 ﻿using System;
-using Home.Items;
+using Items;
 using UpdatePlan.Items;
 
 namespace ProjetoStreamingCS

@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using Entities;
-using InputValidation;
+using Utils.InputValidation;
 using Utils.FileUtil;
 using View.Menu;
 
-namespace Home.Items{
+namespace Items{
 
     internal class RegisterClient : IItemMenu
     {

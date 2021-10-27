@@ -1,0 +1,14 @@
+
+Every entity on the system will have 3 files:
+
+    - Name              Main Class where determine the object 
+                        //OBS: this is like my "Model" but I kwon the concept of model is other. oops! ;P
+
+    - NameController    Controls the acess of DB, search things and anything more...
+                        He do NOT suppost to print anything. //obs: oh boy this will be hard.
+                        
+    - NameView          Print things, working with macro View, but its suppost to help the macro View...
+                        So macro View will call him when he need to something that already are done by NameView
+                        (like ShowShortMovie or ListMovie)
+
+

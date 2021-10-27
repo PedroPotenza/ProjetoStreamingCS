@@ -1,6 +1,6 @@
 using System;
 
-namespace InputValidation
+namespace Utils.InputValidation
 {
     /// <summary>
     /// Do all the validations of inputs to avoid Null inputs or Invalid Formats.

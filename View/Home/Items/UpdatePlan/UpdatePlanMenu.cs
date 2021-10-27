@@ -1,6 +1,7 @@
+using UpdatePlan.Items;
 using View.Menu;
 
-namespace UpdatePlan.Items{
+namespace Items{
 
     internal class UpdatePlanMenu : IItemMenu
     {

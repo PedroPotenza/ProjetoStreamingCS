@@ -1,117 +1,34 @@
 using System;
-using System.IO;
-using InputValidation;
+using Entities.Controller;
 using Utils.FileUtil;
+using Utils.InputValidation;
 
-namespace Entities
+namespace Entities.View
 {
-    internal class Movie
+    static public class MovieView
     {
-
-        public enum MovieRating
-        {
-            NotSet = 0,
-            G,
-            PG,
-            PG13,
-            R,
-            NC17
-
-        }
-
-        public int id { get; set; }
-        public string name { get; set; }
-        public string plot { get; set; }
-        public int year { get; set; }
-        public string director {get; set; }
-
-        public MovieRating rating { get; set; }
-
-        public Movie()
-        {
-            this.id = 1000 + FileUtil.CountFile(@"./DataBase/Movies.txt"); 
-        }
-
-        //TODO: Create a Movie file that helps to work, like a countMovie(), addMovie(), updateMovie() all in on single static class.
-        //todo: just like jeff said...
-        //optimize: I think that maybe it's need focus more on encapsulate concept... in this system don't have any problem but on a
-        //optimize: system more complete and with others devs maybe I've been doing some mistakes.
-        
-        /// <summary>
-        /// Constructor of a existent movie found by id.
-        /// </summary>
-        /// <param name="id">Id of a existent movie. Be sure to check for existence of the movie id before call this constructor.</param>
-        public Movie(int id)
-        {
-            var reader = File.OpenText(@"./DataBase/Movies.txt");
-            
-            for(int i=1; i < id - 1000; i++)
-                reader.ReadLine();
-            
-            string line = reader.ReadLine();
-            reader.Close();
-            string[] atribute = line.Split(';');
-
-            this.id = int.Parse(atribute[0]);
-            this.name = atribute[1];
-            this.plot = atribute[2];
-            this.year = int.Parse(atribute[3]);
-            this.director = atribute[4];
-            this.rating = Enum.Parse<MovieRating>(atribute[5]);
-        }
-
-        /// <summary>
-        /// Constructor of a existent movie found by name.
-        /// </summary>
-        /// <param name="name">Name of a existent movie. Be sure to check for existence of the movie name before call this constructor.</param>
-        public Movie(string name)
-        {
-            var reader = File.OpenText(@"./DataBase/Movies.txt");
-                 
-            while(true)
-            {           
-                string line = reader.ReadLine();
-                string[] atribute = line.Split(';');
-
-                string nameLine = atribute[1];
-             
-                if(nameLine == name)
-                {
-                    this.id = int.Parse(atribute[0]);
-                    this.name = atribute[1];
-                    this.plot = atribute[2];
-                    this.year = int.Parse(atribute[3]);
-                    this.director = atribute[4];
-                    this.rating = Enum.Parse<MovieRating>(atribute[5]);
-                    break;
-                }
-            }
-
-            reader.Close();
-        }
-
-        public void ShowMovieShort()
+        static private void ShowMovieShort(Movie movie)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("\t" + id);
-            Console.Write("\t" + name );
-            for(int i = name.Length; i <=50; i++)
+            Console.Write("\t" + movie.id);
+            Console.Write("\t" + movie.name );
+            for(int i = movie.name.Length; i <=50; i++)
                 Console.Write(" ");
-            Console.Write("\t" + rating + "\n");
+            Console.Write("\t" + movie.rating + "\n");
             Console.ResetColor();
         }
 
-        public void ShowMovieLong()
+        static private void ShowMovieLong(Movie movie)
         {
             Console.Clear();
             Console.WriteLine("".PadRight(57,'-'));
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Id: " + id);
-            Console.WriteLine("Nome: " + name);
-            Console.WriteLine("Sinopse: " + plot);
-            Console.WriteLine("Ano: " + year);
-            Console.WriteLine("Diretor: " + director);
-            Console.WriteLine("Classificação: " + rating);
+            Console.WriteLine("Id: " + movie.id);
+            Console.WriteLine("Nome: " + movie.name);
+            Console.WriteLine("Sinopse: " + movie.plot);
+            Console.WriteLine("Ano: " + movie.year);
+            Console.WriteLine("Diretor: " + movie.director);
+            Console.WriteLine("Classificação: " + movie.rating);
             Console.WriteLine("Generos: ");
             Console.ResetColor();
             Console.WriteLine("".PadRight(57,'-'));
@@ -142,14 +59,14 @@ namespace Entities
                 Console.WriteLine("Para voltar ao menu principal digite \"home\"");
                 Console.ResetColor();
         }
-        
+
         static private void ShowItemMovie(int lower, int upper)
         {
             for(;lower<=upper; lower++)
             {
                 try{
                     Movie movie = new Movie(lower);
-                    movie.ShowMovieShort();
+                    ShowMovieShort(movie);
                     
                 }
                 catch(NullReferenceException)
@@ -159,13 +76,12 @@ namespace Entities
             }
         }
 
-
         /// <summary>
         /// Show a list of movies with a page controller and ask to user select a movie. If selected movie exist clear console and show a long description of him, after that confirm the selection.
         /// </summary>
         /// <param name="message">Message show after list movies and before of "Filme selecionado: ".</param>
         /// <returns>If find a movie, returns movie. If not, returns null.</returns>
-        static public Movie ControllerOfListMovies(string message)
+        static internal Movie ControllerOfListMovies(string message)
         {
             int page = 1;
             int lastPage = (FileUtil.CountFile(@"./DataBase/Movies.txt")/10)+1;
@@ -225,12 +141,12 @@ namespace Entities
 
                         default:
                         {
-                            Movie movie = FindMovie(dataString);
+                            Movie movie = MovieController.FindMovie(dataString);
                             
                             if(movie != null)
                             {
                                 ask = false;
-                                movie.ShowMovieLong();
+                                ShowMovieLong(movie);
 
                                 Console.WriteLine("\nConfirma a escolha do filme?");
                                 bool opcao = Validation.ReadYesOrNot();
@@ -245,50 +161,6 @@ namespace Entities
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Search for a movie by Id or Name. Already with exception tratament if the movie isn't possible to be find.
-        /// </summary>
-        /// <param name="dataMovie">Id or Name to search.</param>
-        /// <returns>If find a movie, returns movie. If not, returns null.</returns>
-        static private Movie FindMovie(string dataMovie)
-        {
-
-            bool findById = Int32.TryParse(dataMovie, out int Id);
-            if(findById)
-            {
-
-                if(Id >= 1001 && Id<=1000+FileUtil.CountFile(@"./DataBase/Movies.txt"))
-                {
-                    Movie movie = new Movie(Id);
-                    return movie;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Não foi possivel localizar o filme com o Id correspondente a \"{0}\"", Id);
-                    Console.ResetColor();
-                    return null;
-                }
-
-            }
-            else
-            {
-                try
-                {
-                    Movie movie = new Movie(dataMovie);
-                    return movie;
-                }
-                catch(NullReferenceException) //ASK: it's possible to see if that movie exist without a exception? 
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Não foi possivel localizar o filme \"{0}\"", dataMovie);
-                    Console.ResetColor();
-                    return null;
-                }
-
-            }
-        }
+        }      
     }
 }
